@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+$VeryDarkMagenta: hsl(300, 43%, 22%);
+$SoftPink: hsl(333, 80%, 67%);
+$DarkGrayishMagenta: hsl(303, 10%, 53%);
+$LightGrayishMagenta: hsl(300, 24%, 96%);
+
+@mixin display {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background: url(/proyecto4/social-proof-section-master/images/bg-pattern-top-mobile.svg), url(/proyecto4/social-proof-section-master/images/bg-pattern-bottom-mobile.svg);
+    background-position: top left, bottom right;
+    background-repeat: no-repeat;
+    font-family: 'League Spartan', sans-serif;
+    height: 100vh;
+}
+
+.main-container {
+    
+
+    /*-----------------header------------------*/
+
+
+    .info {
+        margin: 80px 25px 45px 25px;
+        text-align: center;
+        h1 {
+            color: $VeryDarkMagenta;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 25px;
+            text-align: center;
+            margin: 0 64px 30px 64px;
+        }
+        p {
+            color: $DarkGrayishMagenta;
+            font-weight: 500;
+            line-height: 1.3rem;
+        }
+    }
+
+    .stars-container {
+        @include display();
+        align-items: center;
+        height: 269px;
+        margin: 50px;
+        .stars {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            background-color: $LightGrayishMagenta;
+            border-radius: 5px;
+            width: 326px;
+            height: 76px;
+        }
+    }
+    .cards-container {
+        @include display();
+        height: 777px;
+        margin: 0 20px;
+        margin-bottom: 50px;
+        align-items: center;
+
+        .cards {
+            height: 245px;
+            background-color: $VeryDarkMagenta;
+            border-radius: 5px;
+            padding: 40px 30px;
+            display: grid;
+            grid-template-columns: 1fr 10fr;
+            color: white;
+            width: 326px;
+
+
+            img {
+                border-radius: 50%;
+                width: 40px;
+                grid-column: 1 / 2;
+                margin-right: 20px;
+            }
+
+            .name {
+                grid-row: 1 / 2;
+                grid-column: 2 / 3;
+                font-weight: 700;
+            }
+
+            .status {
+                margin-top: 20px;
+                grid-row: 1 / 2;
+                grid-column: 2 / 3;
+                font-weight: 400;
+                color: $SoftPink;
+            }
+
+            p { 
+                grid-row: 2 / 3;
+                grid-column: 1 / 3;
+            }
+        }
+    }
+
+}
+
+/*---------------------footer---------------------------*/
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width:376px) {
+
+    body {
+        background: url(/proyecto4/social-proof-section-master/images/bg-pattern-top-desktop.svg), url(/proyecto4/social-proof-section-master/images/bg-pattern-bottom-desktop.svg);
+        background-repeat: no-repeat;
+        background-position: top left, bottom right;
+
+        .star1 {
+            align-self: flex-start;
+        }
+        .star3 {
+            align-self: flex-end;
+        }
+
+        .card1 {
+            align-self: flex-start;
+        }
+        .card3 {
+            align-self: flex-end;
+        }
+
+    }
+
+
+}
+
+@media screen and (min-width:768px) {
+        .main-container {
+            .stars-container {
+                .stars {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    width: 445px;
+                    height: 58px;
+                }
+            }
+        }
+    
+}
+
+@media screen and (min-width:894px) {
+    .main-container {
+        .cards-container {
+            max-height: 650px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;     
+            .cards {
+                align-self: center;
+            
+                // .status {
+                //     margin-top: 40px;
+                // }
+
+            }
+            .card1 {
+                grid-column: 1 / 2;
+                justify-self: center;
+            }
+            .card2 {
+                grid-column: 2 / 3;
+                justify-self: center;
+            }
+            .card3 {
+                grid-column:1 / 3;
+                align-self: center;
+                justify-self: center;
+            }
+
+        }
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    
+    .main-container {
+        
+        margin: 200px auto;
+        max-width: 1130px;        
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        .info {
+            grid-column: 1 / 6;
+            grid-row: 1 / 6;
+        }
+        .stars-container {
+            grid-column: 6 / -1;
+            grid-row: 1 / 6;
+        }
+
+        .cards-container {
+            max-height: 300px;
+            display: flex;
+            flex-direction: row;
+            grid-column: 1 / -1;
+            grid-row: 6 / -1;
+            .card1 {
+                align-self: flex-start;
+            }
+            .card2 {
+                align-self: center;
+            }
+            .card3 {
+                align-self: flex-end;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1200px) {
+    
+    .main-container {
+        
+        .info {
+            margin: 0;
+            h1 {
+                margin: 0;
+                margin-bottom: 1rem;
+                text-align: start;
+                font-size: 55px;
+                line-height: 40px;
+            }
+            p {
+                font-size: 20px;
+                text-align: start;
+                margin-top: 3rem;
+            }
+        }
+        .stars-container {
+            
+            margin: 0;
+            margin-left: auto;
+            width: 550px;
+            max-height: 700px;
+        }
+        .cards-container {
+            margin-top: 75px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
